@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Dreams - Buket Bunga Kawat Premium</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CODE RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fff6f8; 
+            color: #4a4a4a;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at top right, #ffe3ec 0%, transparent 45%),
+                              radial-gradient(circle at bottom left, #ffe3ec 0%, transparent 35%);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 10%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 520px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.8rem;
+            line-height: 1.1;
+            color: #bc5a6f; 
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .hero-title span {
+            color: #7b9468; 
+            display: block;
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #a08087;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 38px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .btn-filled {
+            background-color: #bc5a6f;
+            color: white;
+            border: 1px solid #bc5a6f;
+        }
+
+        .btn-filled:hover {
+            background-color: #a3475b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(188, 90, 111, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #bc5a6f;
+            border: 1px solid #bc5a6f;
+        }
+
+        .btn-outline:hover {
+            background-color: #bc5a6f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-decoration {
+            position: absolute;
+            top: 5%;
+            right: -2%;
+            width: 45%;
+            max-width: 550px;
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* --- SECTION STRUCTURE --- */
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: #bc5a6f;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .section-desc {
+            font-size: 0.95rem;
+            color: #a08087;
+            max-width: 650px;
+            margin: 0 auto 60px auto;
+            line-height: 1.7;
+        }
+
+        /* --- FLOWER CATEGORIES --- */
+        .category-container {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            width: 110px;
+        }
+
+        .category-circle {
+            width: 85px;
+            height: 85px;
+            border: 1px solid #dda0ad;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            background-color: white;
+            color: #bc5a6f;
+            font-size: 1.6rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(221, 160, 173, 0.1);
+        }
+
+        .category-item:hover .category-circle {
+            background-color: #bc5a6f;
+            color: white;
+            border-color: #bc5a6f;
+            transform: scale(1.05);
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* --- BEST-SELLERS --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 45px 30px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: transparent;
+            text-align: center;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .image-container {
+            width: 85%;
+            margin: 0 auto 20px auto;
+            aspect-ratio: 1/1.1;
+            border-radius: 50% 50% 45% 45%; 
+            background-color: #fce7f3;
+            overflow: hidden;
+            box-shadow: 0 12px 25px rgba(221, 160, 173, 0.2);
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.06);
+        }
+
+        .product-tag {
+            font-size: 0.85rem;
+            text-transform: capitalize;
+            color: #a08087;
+            margin-bottom: 4px;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #bc5a6f;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .old-price {
+            font-size: 0.9rem;
+            color: #c0b0b4;
+            text-decoration: line-through;
+            margin-left: 6px;
+            font-weight: 400;
+        }
+
+        /* --- RESPONSIVE LAYOUT --- */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                padding: 100px 5% 40px 5%;
+                min-height: auto;
+                flex-direction: column-reverse;
+            }
+            .hero-content { margin-top: 30px; }
+            .hero-title { font-size: 3.2rem; }
+            .hero-decoration {
+                position: relative;
+                width: 70%;
+                right: 0;
+                top: 0;
+                margin: 0 auto;
+            }
+            .hero-buttons { justify-content: center; }
+            .category-container { gap: 20px 15px; }
+            .category-circle {
+                width: 75px;
+                height: 75px;
+                font-size: 1.4rem;
+            }
+            .section { padding: 60px 5%; }
+            .image-container { width: 75%; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Garden <span>Dreams</span></h1>
+            <p class="hero-subtitle">Made on Earth, designed with you in mind. Mengabadikan keindahan seni lewat rajutan buket bunga kawat (wire crafts) pilihan. Solusi hadiah estetik, bernilai tinggi, dan abadi selamanya.</p>
+            <div class="hero-buttons">
+                <a href="#shop" class="btn btn-filled">More</a>
+                <a href="#categories" class="btn btn-outline">Shop</a>
+            </div>
+        </div>
+        
+        <svg class="hero-decoration" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="360" cy="200" r="80" fill="#fbcfe8" opacity="0.5"/>
+            <circle cx="270" cy="300" r="110" fill="#fce7f3" opacity="0.6"/>
+            <circle cx="390" cy="350" r="60" fill="#fbcfe8" opacity="0.4"/>
+            <path d="M420 120C370 170 300 220 200 320" stroke="#fecddb" stroke-width="2" stroke-dasharray="8 12"/>
+        </svg>
+    </section>
+
+    <section class="section" id="categories">
+        <h2 class="section-title">Flower Categories</h2>
+        <p class="section-desc">Explore our Flower Categories to find the perfect blooms for any occasion. From vibrant roses to delicate lilies, our selection offers something for every taste and celebration.</p>
+        
+        <div class="category-container">
+            <!-- Menambahkan atribut data-filter pada setiap kategori -->
+            <div class="category-item" data-filter="all">
+                <div class="category-circle"><i class="fa-solid fa-border-all"></i></div>
+                <span class="category-name">All Flowers</span>
+            </div>
+            <div class="category-item" data-filter="anniversaries">
+                <div class="category-circle"><i class="fa-solid fa-gift"></i></div>
+                <span class="category-name">Anniversaries</span>
+            </div>
+            <div class="category-item" data-filter="birthdays">
+                <div class="category-circle"><i class="fa-solid fa-cake-candles"></i></div>
+                <span class="category-name">Birthdays</span>
+            </div>
+            <div class="category-item" data-filter="roses-wire">
+                <div class="category-circle"><i class="fa-solid fa-seedling"></i></div>
+                <span class="category-name">Roses Wire</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="shop">
+        <h2 class="section-title">Best-Sellers</h2>
+        <p class="section-desc">Discover our Best Sellers, featuring the most popular and beloved floral arrangements. These favorites are sure to impress and delight for any occasion.</p>
+        
+        <div class="product-grid">
+            <!-- Menambahkan atribut data-category sesuai dengan tag produknya -->
+            <div class="product-card" data-category="weddings">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600&auto=format&fit=crop" alt="Floral Fantasy" class="product-image">
+                </div>
+                <div class="product-tag">Wedding</div>
+                <h3 class="product-name">Floral Fantasy</h3>
+                <div class="product-price">Rp 150.000 <span class="old-price">Rp 200.000</span></div>
+            </div>
+
+            <div class="product-card" data-category="birthdays">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop" alt="Spring Serenade" class="product-image">
+                </div>
+                <div class="product-tag">Birthday</div>
+                <h3 class="product-name">Spring Serenade</h3>
+                <div class="product-price">Rp 80.000 <span class="old-price">Rp 150.000</span></div>
+            </div>
+
+            <div class="product-card" data-category="anniversaries">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600&auto=format&fit=crop" alt="Winter Whispers" class="product-image">
+                </div>
+                <div class="product-tag">Anniversaries</div>
+                <h3 class="product-name">Winter Whispers</h3>
+                <div class="product-price">Rp 100.000</div>
+            </div>
+            
+            <!-- Kamu bisa menambahkan produk baru di bawah sini, pastikan data-category nya sesuai -->
+        </div>
+    </section>
+
+    <script>
+        // --- 1. EFEK SCROLL ANIMASI AWAL ---
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        const animatedItems = document.querySelectorAll('.category-item, .product-card');
+        animatedItems.forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(40px)";
+            el.style.transition = "all 0.8s cubic-bezier(0.25, 1, 0.5, 1)";
+            observer.observe(el);
+        });
+
+        // --- 2. FITUR FILTER KLIK KATEGORI ---
+        const filterButtons = document.querySelectorAll('.category-item');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Ambil target kategori (misal: 'anniversaries', 'weddings')
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Scroll langsung ke bagian Shop dengan efek halus (smooth)
+                document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+
+                // Loop setiap produk untuk difilter
+                productCards.forEach(card => {
+                    const productCategory = card.getAttribute('data-category');
+
+                    // Jika kategori yang diklik sama dengan kategori produk ATAU tombol 'all' diklik
+                    if (filterValue === 'all' || filterValue === productCategory) {
+                        card.style.display = 'block'; // Tampilkan elemen
+                        // Sedikit delay agar efek animasi dari display:block berjalan lancar
+                        setTimeout(() => {
+                            card.style.opacity = "1";
+                            card.style.transform = "translateY(0)";
+                        }, 50);
+                    } else {
+                        // Sembunyikan produk yang tidak sesuai
+                        card.style.display = 'none';
+                        card.style.opacity = "0";
+                        card.style.transform = "translateY(40px)";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
